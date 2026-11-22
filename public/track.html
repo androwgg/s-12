@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ركن | تتبّع طلبك</title>
+  <meta name="description" content="اعرف إن كانت قهوتك قيد التحضير أو جاهزة للاستلام.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">ركن</a>
+    <nav aria-label="التنقل الرئيسي">
+      <a href="/">احجز</a>
+      <a href="/track" aria-current="page">تتبّع طلبك</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="glass" aria-labelledby="track-title">
+      <h1 id="track-title">تتبّع طلبك</h1>
+      <p class="lead">اكتب الرمز الذي ظهر لك بعد الحجز.</p>
+      <form class="inline-form" id="track-form" novalidate>
+        <div class="field">
+          <label for="code">رمز الطلب</label>
+          <input id="code" name="code" type="text" dir="ltr" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="code-error">
+        </div>
+        <button class="primary" type="submit">اعرض الحالة</button>
+      </form>
+      <p class="error" id="code-error" role="alert" hidden></p>
+    </section>
+
+    <section class="glass" id="result" aria-labelledby="result-title" hidden>
+      <h2 id="result-title">حالة طلبك</h2>
+      <p id="summary" aria-live="polite"></p>
+      <p class="lead" id="waiting" aria-live="polite"></p>
+      <p class="notice" id="stale" hidden>تعذر تحديث الحالة الآن، قد تكون المعروضة قديمة. نحاول مرة أخرى تلقائيًا.</p>
+      <ol class="steps" id="steps" aria-live="polite"></ol>
+    </section>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/track.js"></script>
+</body>
+</html>

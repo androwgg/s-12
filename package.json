@@ -1,0 +1,14 @@
+{
+  "name": "s-12",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pre-order system for the daily coffee",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}

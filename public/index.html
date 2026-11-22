@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ركن | احجز قهوة اليوم</title>
+  <meta name="description" content="احجز كوبك من قهوة اليوم في ركن وتابع حالة طلبك.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">ركن</a>
+    <nav aria-label="التنقل الرئيسي">
+      <a href="/" aria-current="page">احجز</a>
+      <a href="/track">تتبّع طلبك</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="glass" aria-labelledby="brew-title">
+      <p class="eyebrow">تحميص اليوم</p>
+      <h1 id="brew-title">قهوة اليوم</h1>
+      <p class="lead" id="brew-notes">تحميص مختلف كل يوم وبكمية محدودة.</p>
+      <dl class="facts">
+        <div><dt>البلد</dt><dd id="brew-origin">-</dd></div>
+        <div><dt>التحميص</dt><dd id="brew-roast">-</dd></div>
+      </dl>
+      <div class="stock">
+        <p id="stock-text" aria-live="polite">-</p>
+        <div class="meter" id="stock-meter" role="progressbar" aria-labelledby="stock-text" aria-valuemin="0" aria-valuenow="0" aria-valuemax="1"><span></span></div>
+      </div>
+    </section>
+
+    <section class="glass" id="order-section" aria-labelledby="order-title">
+      <h2 id="order-title">احجز كوبك</h2>
+      <form id="order-form" novalidate>
+        <div class="form-error" id="form-error" role="alert" hidden></div>
+
+        <div class="field">
+          <label for="name">الاسم</label>
+          <input id="name" name="name" type="text" autocomplete="name" maxlength="40" required aria-describedby="name-error">
+          <p class="error" id="name-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="phone">رقم الموبايل <span class="hint">للتواصل معك عند الحاجة، مثل 01012345678</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" dir="ltr" maxlength="20" required aria-describedby="phone-error">
+          <p class="error" id="phone-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="quantity">عدد الأكواب</label>
+          <select id="quantity" name="quantity" aria-describedby="quantity-error"></select>
+          <p class="error" id="quantity-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="note">ملاحظة <span class="hint">اختياري</span></label>
+          <textarea id="note" name="note" rows="2" maxlength="100" aria-describedby="note-error"></textarea>
+          <p class="error" id="note-error" hidden></p>
+        </div>
+
+        <button class="primary" id="submit" type="submit">احجز كوبي</button>
+      </form>
+    </section>
+
+    <section class="glass" id="closed-section" aria-labelledby="closed-title" hidden>
+      <h2 id="closed-title">انتهت كمية اليوم</h2>
+      <p class="lead">نحمّص كمية محدودة كل يوم. يمكنك الحجز غدًا بتحميص جديد.</p>
+    </section>
+
+    <section class="glass done" id="done" tabindex="-1" aria-labelledby="done-title" hidden>
+      <h2 id="done-title">استلمنا طلبك</h2>
+      <p>رمز تتبع طلبك</p>
+      <p class="code" id="done-code"></p>
+      <p id="done-number"></p>
+      <p class="lead">احتفظ بالرمز، ويحفظه المتصفح لك أيضًا. ستجد حالة الطلب في صفحة التتبع.</p>
+      <a class="button" id="done-track" href="/track">تابع حالة الطلب</a>
+    </section>
+  </main>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/order.js"></script>
+</body>
+</html>
